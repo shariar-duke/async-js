@@ -1,14 +1,6 @@
 if (true) {
-    b = 10;
+    let b = 10;
 }
-console.log(b);
 
-
-//In JavaScript, when you assign a value to an undeclared variable, it implicitly creates that variable in the global scope.
-// so behaid the seen what is happening
-
-// var b;
-// if (true) {
-//     b = 10;
-// }
-// console.log(b);
+console.log(b)
+// But this will give surely error. Because let hosche block scope. Block er bahire etar r kno existence nai
