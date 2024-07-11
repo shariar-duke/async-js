@@ -1,9 +1,19 @@
 // Array.map
 const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]
 
-const result = fruits.map((f) => f === "Mango" || f === "Man")
+const result = fruits.map((f) => {
+    if (f === "Mango" || f === "Man") {
+        return f
+    }
+}
+)
+
 console.log(result)
 
-// result  [ false, false, false, false, true ]
-// karon array.map korle result er modhe same length er array create hbe . ekhne condition millo na tai true false
-// array map a generally emn kisu kroe na . Array map a jeta kroe set holo protibar j elmeent er access pasch tar upor kno kisu kora labe naki seta kore return krer 
+// Array.map k filter er moto use korte chiale emn hbe. same length er result array asbe but baki gula te undefined thakbe j gular condition milebe na
+// but filter korle sudhu oi elemnet gulari array hoto .
+
+// result
+// [ undefined, undefined, undefined, undefined, 'Mango' ]
+
+
