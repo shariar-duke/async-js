@@ -1,7 +1,14 @@
-// This is called for in 
-let arr = [2, 5, 8, 12]
-for (x in arr) {
-    console.log(x)
+// Now For in Property
+
+const language = {
+    name: "Java Script",
+    year: 1995,
+    creator: "Brandan"
 }
 
-//  eta array er index gula k collect kre  , previously for of kroto holo elemnent gula k 
+for (x in language) {
+    console.log(x) // This will print all the key of the object
+    console.log(language[x]) // This will print the correspondint value
+}
+
+// for in ta object er bapar a onk use hoy x in objectname dile x dia ektar por ekta object er key k bujay r objectName[x] dile oi key er value take 
