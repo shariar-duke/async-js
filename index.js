@@ -1,19 +1,7 @@
-// Array.map
-const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]
-
-const result = fruits.map((f) => {
-    if (f === "Mango" || f === "Man") {
-        return f
-    }
-}
-)
-
+// Filter
+let number = [10, 12, 21, 24, 36, 45]
+const result = number.slice(0, 3)
 console.log(result)
-
-// Array.map k filter er moto use korte chiale emn hbe. same length er result array asbe but baki gula te undefined thakbe j gular condition milebe na
-// but filter korle sudhu oi elemnet gulari array hoto .
-
-// result
-// [ undefined, undefined, undefined, undefined, 'Mango' ]
-
-
+console.log(number)
+// Main array te hat dy nai
+// [ 10, 12, 21 ]
