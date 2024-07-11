@@ -1,16 +1,9 @@
-// Premitive variable string, number , boolean 
-// Premetive gular collection dia array , object crete hoy 
+// Array.find
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]
+// Proti ta array method er modhe ekta kore call back function dia dite hoy r kih
+// Eta just first er ta return kore dibe . R jode kisu na pay tahle return korbe hlo undefined
+const result = fruits.filter((f) => f === "Mango" || f === "Man")
+console.log(result)
 
-let a = ["Shariar", "Duke"]
-let b = ["HTML", "CSS"];
-
-b = a;
-b.push("js")
-console.log(a)
-console.log(b)
-
-// result
-// [ 'Shariar', 'Duke', 'js' ]
-// [ 'Shariar', 'Duke', 'js' ]
-
-// dutar resutl same karon b and a ekhn same memory space share kortse tai resutl o same 
+// arary find sudhu dkehe konta age ei condition meet kroe . j meet korbe take nia ase result er mdohe dhukabe. r chekck o krobe na . so array find er value suhdu ekta value
+// eta kokhno array na 
