@@ -1,16 +1,14 @@
-
 if (true) {
-    var b = 10;
+    b = 10;
 }
 console.log(b);
 
 
-// var is a function scoped so it works fine inside a function . As I havend't declred it within any function it is first declaring it on the global level
-// then it is assigning it self inside the if statement  . The scenario is happending here is
+//In JavaScript, when you assign a value to an undeclared variable, it implicitly creates that variable in the global scope.
+// so behaid the seen what is happening
 
 // var b;
-
 // if (true) {
-//     var b = 10;
+//     b = 10;
 // }
-// console.log(b); 
+// console.log(b);
