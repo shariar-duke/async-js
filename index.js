@@ -1,4 +1,10 @@
-// Now For in Property
+let arr = [1, 4, 6, 8, 9]
+
+arr.forEach((f) =>
+    console.log(f)
+)
+
+// for each ta for of eri ektu ES6 version  . jeta ekta array er element gula k direct access kore 
 
 const language = {
     name: "Java Script",
@@ -6,9 +12,8 @@ const language = {
     creator: "Brandan"
 }
 
-for (x in language) {
-    console.log(x) // This will print all the key of the object
-    console.log(language[x]) // This will print the correspondint value
-}
+language.forEach((o) =>
+    console.log(o)
+)
 
-// for in ta object er bapar a onk use hoy x in objectname dile x dia ektar por ekta object er key k bujay r objectName[x] dile oi key er value take 
+// for each sudhu Array er jnno object er jnno na 
