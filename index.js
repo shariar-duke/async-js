@@ -1,10 +1,3 @@
-let arr = [1, 4, 6, 8, 9]
-
-arr.forEach((f) =>
-    console.log(f)
-)
-
-// for each ta for of eri ektu ES6 version  . jeta ekta array er element gula k direct access kore 
 
 const language = {
     name: "Java Script",
@@ -12,8 +5,9 @@ const language = {
     creator: "Brandan"
 }
 
-language.forEach((o) =>
-    console.log(o)
-)
+// jode ei object a ekta new kisu dukate chai. tahle manually jeta korte pare ta holo . Dhorlam er modhe version ta manually direct dbo 
 
-// for each sudhu Array er jnno object er jnno na 
+language.version = 3;
+
+console.log(language)
+
