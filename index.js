@@ -1,6 +1,12 @@
-if (true) {
-    let b = 10;
+// regular function
+
+function hello() {
+    console.log("Hello")
 }
 
-console.log(b)
-// But this will give surely error. Because let hosche block scope. Block er bahire etar r kno existence nai
+let mess = hello()
+
+console.log(mess)
+// This will return undefined. Because if a function doesn't return anything. It will
+// return undefined.
+// no return means undefined
