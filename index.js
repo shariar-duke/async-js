@@ -1,79 +1,59 @@
-// Example 1: Copying Arrays
-const originalArray = [1, 2, 3];
-const copiedArray = [...originalArray];
-
-console.log(copiedArray); // Output: [1, 2, 3]
-
-
-// Example 2: Merging Arrays
-const array1 = [1, 2, 3];
-const array2 = [4, 5, 6];
-const mergedArray = [...array1, ...array2];
-
-console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
-
-// Example 3: Spreading Elements in Function Calls
-
-function sum(a, b, c) {
-    return a + b + c
+// Object distructuring 
+const user = {
+    id: 339,
+    name: "Sumit",
+    age: 42,
+    education: {
+        degree: "Graduate"
+    }
 }
 
-const numbers = [1, 2, 3]
-console.log(sum(...numbers))
+console.log(user.age)
+const { name, age } = user;
 
-// Example 4: Copying Objects
-
-const originalObject = { a: 1, b: 2, c: 3 };
-const copiedObject = { ...originalObject };
-
-console.log(copiedObject); // Output: { a: 1, b: 2, c: 3 }
+console.log("The age is", age)
 
 
-// Example 5: Merging Objects
-const object1 = { a: 1, b: 2 };
-const object2 = { c: 3, d: 4 };
-const mergedObject = { ...object1, ...object2 };
+// If I want to get access of he degree
 
-console.log(mergedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
+const { education: { degree } } = user; // Nested destructuring to extract degree directly
 
 
-// Example 6: Adding New Properties to Objects
-const originalObject2 = { a: 1, b: 2 };
-const newObject = { ...originalObject, c: 3 };
 
-console.log(newObject); // Output: { a: 1, b: 2, c: 3 }
+console.log(degree); // Output: "Graduate"
 
-// Example 7: Combining Arrays and Adding Elements
-const array3 = [1, 2, 3];
-const array4 = [4, 5, 6];
-const combinedArray = [...array3, 'new element', ...array4];
+// Nested Destructuring
+// To destructure a nested property, you need to specify both the outer property and the inner property. Here’s the logic:
 
-console.log(combinedArray); // Output: [1, 2, 3, 'new element', 4, 5, 6]
+// Outer Property: You need to tell JavaScript to look inside the education property.
+// Inner Property: You then specify which property inside education you want to extract.
+// Combining these two steps into one line, the syntax is:
 
-
-// Example 8: Using Spread Operator with Strings
-const string = "hello";
-const characters = [...string];
-
-console.log(characters); // Output: ['h', 'e', 'l', 'l', 'o']
+// const { education: { degree } } = user;
 
 
-// Example 9: Using Spread Operator with Function Arguments
-function multiply(x, y, z) {
-    return x * y * z;
-}
-
-const args = [2, 3, 4];
-console.log(multiply(...args)); // Output: 24
+// education:: Look inside the education property of the user object.
+// { degree }: Extract the degree property from the education object.
 
 
-// Example 10: Combining Spread and Rest Parameters
 
-function collectArguments(first, ...rest) {
-    console.log(first)
-    console.log(rest)
-}
+// another example : 
 
-const arg2 = [1, 2, 4, 6, 8, 9]
+const user2 = {
+    id: 339,
+    name: "Sumit",
+    age: 42,
+    education: {
+        degree: "Graduate",
+        institution: {
+            instutionName: "University of XYZ",
+            location: "City ABC"
+        }
+    }
+};
 
-collectArguments(...arg2)
+// Destructure the name of the institution directly from the user object
+
+const { education: { institution: { instutionName } } } = user2
+
+console.log("The instutuion name is", instutionName)
