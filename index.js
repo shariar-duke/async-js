@@ -1,9 +1,9 @@
-// Array.find
+// Array.filter 
 const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]
-// Proti ta array method er modhe ekta kore call back function dia dite hoy r kih
-// Eta just first er ta return kore dibe . R jode kisu na pay tahle return korbe hlo undefined
+
 const result = fruits.filter((f) => f === "Mango" || f === "Man")
 console.log(result)
 
-// arary find sudhu dkehe konta age ei condition meet kroe . j meet korbe take nia ase result er mdohe dhukabe. r chekck o krobe na . so array find er value suhdu ekta value
-// eta kokhno array na 
+// array.filer sob gular modhe dia jabe gia ddekhbe kara kara condition meet kore jara jara meet kroe tader nia new array creat korbe
+// array.find return korto holo ekta single value r filter return korbe holo array . sei array te tarai thakbe jader sathe condition mile
+// result  [ 'Mango' ] . ei array ta te aro onk element thakte pare . 
