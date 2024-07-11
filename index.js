@@ -1,12 +1,7 @@
-// regular function
+// function expression 
 
-function hello() {
-    console.log("Hello")
+const hello = function () {
+    console.log("Hello world")
 }
 
-let mess = hello()
-
-console.log(mess)
-// This will return undefined. Because if a function doesn't return anything. It will
-// return undefined.
-// no return means undefined
+hello()
