@@ -1,62 +1,16 @@
-// false 
-if (!false) {
-    console.log("false is falsy"); // Output: "false is falsy"
-}
+console.log("Line 1")
+
+console.log("line 2")
+
+// The above pattern is called syncronous patter or blocking pattern 
 
 
-//0
-if (!0) {
-    console.log("0 is falsy"); // Output: "0 is falsy"
-}
-
-// -0
-if (!-0) {
-    console.log("-0 is falsy"); // Output: "-0 is falsy"
-}
-
-// 0n (BigInt zero)
-if (!0n) {
-    console.log("0n is falsy"); // Output: "0n is falsy"
-}
+setTimeout(() => {
+    console.log("This will execute after 2 seconds")
+}, 2000)
 
 
-// "" (empty string)
-if (!"") {
-    console.log('"" is falsy'); // Output: '"" is falsy'
-}
+console.log("line3")
 
-// null
-if (!null) {
-    console.log("null is falsy"); // Output: "null is falsy"
-}
-
-// undefined
-if (!undefined) {
-    console.log("undefined is falsy"); // Output: "undefined is falsy"
-}
-
-
-// NaN
-if (!NaN) {
-    console.log("NaN is falsy"); // Output: "NaN is falsy"
-}
-
-
-const falsyValues = [false, 0, -0, 0n, "", null, undefined, NaN];
-
-falsyValues.forEach(value => {
-    if (!value) {
-        console.log(`${value} is falsy`);
-    }
-});
-
-// Outputs:
-// "false is falsy"
-// "0 is falsy"
-// "0 is falsy"
-// "0 is falsy"
-// "" is falsy
-// "null is falsy"
-// "undefined is falsy"
-// "NaN is falsy"
-
+// here line3 will execute before setTimeout funciton all though setTimeout is above the console.log("line3")
+// This is non blocking pattern this will not hold the exuectuon of line3
