@@ -1,16 +1,20 @@
 console.log("Line 1")
 
+const student = getStudent(1)
+console.log("The student data is", student)
+
 console.log("line 2")
 
-// The above pattern is called syncronous patter or blocking pattern 
+function getStudent(id) {
+    setTimeout(() => {
+        console.log("Fetching from database the sutednts data")
+        return { id: id, name: "Shariar" }
+    }, 2000)
+}
 
 
-setTimeout(() => {
-    console.log("This will execute after 2 seconds")
-}, 2000)
 
-
-console.log("line3")
-
-// here line3 will execute before setTimeout funciton all though setTimeout is above the console.log("line3")
-// This is non blocking pattern this will not hold the exuectuon of line3
+// problem with syncronous
+// const student = getStudent(1) ei function tar por nciher console log syncronouly print hosie
+// console.log("The student data is", student)
+// 2 second por function call hye value asche thiki but student er modhe r data dhuek nai 
