@@ -2,15 +2,22 @@
 
 console.log("Line 1")
 
-getStudent(2, (student) => {
+function studentInfo(student) {
     console.log("The student I got is ", student)
-    getCourses(student, (studentDetails) => {
-        console.log(studentDetails)
-        getQuizMarks(studentDetails.courses, (quizMark) => {
-            console.log("the quiz marks are", quizMark)
-        })
-    })
-})
+    getCourses(student, studentInfoWithCourses)
+}
+
+function studentInfoWithCourses(studentDetails) {
+    console.log(studentDetails)
+    getQuizMarks(studentDetails.courses, studentQuizMarks)
+}
+
+function studentQuizMarks(quizMark) {
+    console.log("the quiz marks are", quizMark)
+}
+
+// This was the starting . Here The defination/body of the call back functions are seperately declared
+getStudent(2, studentInfo)
 
 console.log("Line 2")
 
