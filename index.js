@@ -1,26 +1,42 @@
-async function getStudent(id, myCallback) {
-    try {
-        const response = await fetch(`https://api.example.com/students/${id}`);
-        const data = await response.json();
-        console.log("Fetching the data");
-        myCallback(data);
-    } catch (error) {
-        console.error("Error fetching the data:", error);
-    }
+// call back hell
+
+console.log("Line 1")
+
+getStudent(2, (student) => {
+    console.log("The student I got is ", student)
+    getCourses(student, (studentDetails) => {
+        console.log(studentDetails)
+        getQuizMarks(studentDetails.courses, (quizMark) => {
+            console.log("the quiz marks are", quizMark)
+        })
+    })
+})
+
+console.log("Line 2")
+
+function getStudent(id, cb) {
+    setTimeout(() => {
+        console.log("Fetching data from Database ...")
+        cb({ id: id, name: "Rahim" })
+
+    }, 2000)
 }
 
-// Define the callback function
-function handleStudent(person) {
-    console.log("Id id", person.id);
-    console.log("name id", person.name);
+// Another function that receive a call back function
+
+function getCourses(student, cb) {
+    setTimeout(() => {
+        console.log("Student courses from Database ...")
+        cb({ id: student.id, name: student.name, courses: ["js", "python"] })
+    }, 1500)
 }
 
-console.log("Line 1");
-
-// Call getStudent with the named function
-getStudent(2, handleStudent);
-
-console.log("line 2");
-
-
-// call back funtion ei jnno use kra hoy jno jokhn amra ekta function call korbo. oi function er kaj ta ses hole jno tar ses a r ekta fucntion k call kore dite pare . 
+function getQuizMarks(courses, cb) {
+    setTimeout(() => {
+        console.log("marks")
+        cb({
+            [courses[0]]: 20,
+            [courses[1]]: 14
+        })
+    }, 1200)
+}
