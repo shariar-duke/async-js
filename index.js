@@ -1,49 +1,28 @@
-// call back hell
+// Java Script Promise 
+// Real life a amara jokhn kno promise kroe tokhn kaj er status tahke holo pending , mane ami successful hoilam naki failed eta ekhno bolar somoy ase nai 
+// tarpor kaj ta successful hbe or failed hbe 
 
-console.log("Line 1")
+// JavaScript Promise mane amader hoye kno asyncronous operation se perform korbe 
+// Pending theke jode Successful a turn kore tokhn take bole Resolved 
+// Pending theke jode Failure a turn kore tokhn take boel Rejected 
 
-function studentInfo(student) {
-    console.log("The student I got is ", student)
-    getCourses(student, studentInfoWithCourses)
-}
+ const p = new Promise((resolve , reject)=> {
+  // Promise er modhe of course ayncrounous operation perform hoy sei jnno Promise create kora hoise vai . 
+   
+  resolve("The Promsie is Successful")
+  reject("The Promise is failure")
 
-function studentInfoWithCourses(studentDetails) {
-    console.log(studentDetails)
-    getQuizMarks(studentDetails.courses, studentQuizMarks)
-}
+ })
 
-function studentQuizMarks(quizMark) {
-    console.log("the quiz marks are", quizMark)
-}
 
-// This was the starting . Here The defination/body of the call back functions are seperately declared
-getStudent(2, studentInfo)
+ p.then((result) => console.log(result)).catch((err)=> 
+{
+    // ekhne sudhu resolve er result ta pabo karon promise resolve hoise sudhu 
+    console.log(err)
+})
 
-console.log("Line 2")
 
-function getStudent(id, cb) {
-    setTimeout(() => {
-        console.log("Fetching data from Database ...")
-        cb({ id: id, name: "Rahim" })
 
-    }, 2000)
-}
-
-// Another function that receive a call back function
-
-function getCourses(student, cb) {
-    setTimeout(() => {
-        console.log("Student courses from Database ...")
-        cb({ id: student.id, name: student.name, courses: ["js", "python"] })
-    }, 1500)
-}
-
-function getQuizMarks(courses, cb) {
-    setTimeout(() => {
-        console.log("marks")
-        cb({
-            [courses[0]]: 20,
-            [courses[1]]: 14
-        })
-    }, 1200)
-}
+ // Promise er modhe j function ta lkhlam eta k bola hoy Promise executor function . And then 
+ // p holo ekta object Promise object o bola jay . Karon Promise er constructor call kore etar modhe assign kra hoise . So eta to object er syntax 
+ // ei p er modhe Promise er sob update paya jabo . 
