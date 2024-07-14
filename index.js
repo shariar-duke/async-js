@@ -1,28 +1,56 @@
-// Java Script Promise 
-// Real life a amara jokhn kno promise kroe tokhn kaj er status tahke holo pending , mane ami successful hoilam naki failed eta ekhno bolar somoy ase nai 
-// tarpor kaj ta successful hbe or failed hbe 
-
-// JavaScript Promise mane amader hoye kno asyncronous operation se perform korbe 
-// Pending theke jode Successful a turn kore tokhn take bole Resolved 
-// Pending theke jode Failure a turn kore tokhn take boel Rejected 
-
- const p = new Promise((resolve , reject)=> {
-  // Promise er modhe of course ayncrounous operation perform hoy sei jnno Promise create kora hoise vai . 
-   
-  resolve("The Promsie is Successful")
-  reject("The Promise is failure")
-
- })
+// Refactoring the call back example with js promise 
 
 
- p.then((result) => console.log(result)).catch((err)=> 
-{
-    // ekhne sudhu resolve er result ta pabo karon promise resolve hoise sudhu 
-    console.log(err)
-})
+function getStudent(id) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Fetching data from Database ...")
+            resolve({ id: id, name: "Rahim" })
+
+        }, 2000)
+    })
+
+}
 
 
+function getCourses(student) {
 
- // Promise er modhe j function ta lkhlam eta k bola hoy Promise executor function . And then 
- // p holo ekta object Promise object o bola jay . Karon Promise er constructor call kore etar modhe assign kra hoise . So eta to object er syntax 
- // ei p er modhe Promise er sob update paya jabo . 
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Student courses from Database ...")
+            resolve({ id: student.id, name: student.name, courses: ["js", "python"] })
+        }, 1500)
+    })
+
+}
+
+function getQuizMarks(courses) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("marks")
+            resolve({
+                [courses[0]]: 20,
+                [courses[1]]: 14
+            })
+
+        }, 1200)
+    })
+
+}
+
+
+// ekhne call korar somoy fist ekta promise k call korbo . or then theke or positive result ta ber kore anbo . Then or modhe abar porer function take call kro jno . ei promise
+// er ses a thn korle r ekta promise pawa jay. karon j function gula return korbo ogula  asole a promise a return kroe 
+
+getStudent(2).then((student) => {
+    console.log("The student is", student)
+    return getCourses(student)
+}).then((sutdentDetails) => {
+    console.log("Student Details are", sutdentDetails)
+    return getQuizMarks(sutdentDetails.courses)
+}
+).then((marks) => {
+    console.log("The marks of the sutdent in each subject", marks)
+}).catch((err) => console.log("I found an error"))
+
+// I have done this And converted this from call back to promsie  This is more readable now and well structured 
