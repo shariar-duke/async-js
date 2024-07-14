@@ -1,29 +1,66 @@
-// Simulating an asynchronous API call with a promise
-function fetchUserData() {
-    return new Promise(resolve => {
+// Refactoring the call back example with js promise 
+
+
+function getStudent(id) {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve({ id: 1, name: "Alice" });
-        }, 3000);  // Simulating a 3-second delay
-    });
+            console.log("Fetching data from Database ...")
+            resolve({ id: id, name: "Rahim" })
+
+        }, 2000)
+    })
+
 }
 
-async function getUser() {
-    console.log("Starting to fetch user data...");
 
-    // Awaiting the fetchUserData call (this will not block the UI)
-    const user = await fetchUserData();
-    console.log("User data fetched:", user);
+function getCourses(student) {
 
-    console.log("Finished processing user data.");
-    return user;
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Student courses from Database ...")
+            resolve({ id: student.id, name: student.name, courses: ["js", "python"] })
+        }, 1500)
+    })
+
 }
 
-// Calling the async function
-getUser().then(user => {
-    console.log("The user data received:", user);
-})
+function getQuizMarks(courses) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("marks")
+            resolve({
+                [courses[0]]: 20,
+                [courses[1]]: 14
+            })
+
+        }, 1200)
+    })
+
+}
 
 
-// Example of other code that can run while waiting for the async operation
-console.log("This message can be logged immediately, even while waiting for user data.");
 
+// ekta ayync function lekhbo tar modhe amra await dia oi function gula k call korbo jara promise return kore . 
+// Promise ekta asyncrounous jinis tai eta call er age await dite hoy . jate  joto khon execution na hoy toto khon staty kore 
+//  r ei await kore call kora gula j function er under a hotse tar age async dite hbe 
+async function fetchStudentData(id) {
+    try {
+        const student = await getStudent(id);
+        console.log("Student fetched:", student);
+
+        const courses = await getCourses(student);
+        console.log("Courses fetched:", courses.courses);
+
+        const marks = await getQuizMarks(courses.courses);
+        console.log("Quiz marks fetched:", marks);
+    } catch (err) {
+        console.error("Error occurred:", err);
+    }
+}
+// oi async fucntion take call kore dilam 
+fetchStudentData(1);
+
+
+// ekhne upore onk gula function ase j gula sob gula sbai promise return kore
+// ekta async function baniase jar mohde ei promsie gula sob promsie k call korse call korar age await dite hoy
+// ekdom last a oi async funtion take call kroe dise . 
